@@ -1,0 +1,82 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:tnt="sap.tnt" xmlns:ui="sap.ui.commons"
+	xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified"
+	controllerName="z_label_prt2.controller.MY_VIEW" displayBlock="true">
+	<App id="test">
+		<pages>
+			<Page showHeader="false">
+				<content>
+					<HBox width="100%" id="H_PLANT" alignContent="Start" alignItems="Center">
+						<items>
+							<sap.ui.core:Icon xmlns:sap.ui.core="sap.ui.core" src="sap-icon://home" size="2em" id="__icon0"/>
+							<Label text="Label" width="100%" id="__PLANT" design="Bold"/>
+							<HBox width="10%" id="Space6" alignContent="Start" alignItems="Center"/>
+							<HBox width="100%" id="TYPEFLUX" alignContent="Start" alignItems="Center" visible="false">
+								<items>
+									<HBox width="1%" id="Space5" alignContent="Start" alignItems="Center"/>
+									<HBox width="2%" id="Space71" alignContent="Start" alignItems="Center"/>
+									<Label text="" width="100%" id="TYPE" design="Bold"/>
+									<Label text="" width="100%" id="TYPECODE" visible="false"/>
+								</items>
+							</HBox>
+						</items>
+					</HBox>
+					<!-- Begin Tiles -->
+					<HBox width="100%" id="Article" alignContent="Start" alignItems="Center" visible="true">
+						<items>
+							<Label text="{i18n>mat}" width="100%" id="__label0_copy" design="Bold" textAlign="Center"/>
+							<SearchField width="100%" id="SearchArt" placeholder="" search="searchArt"/>
+						</items>
+					</HBox>
+					<!-- End scan input -->
+					<!-- Begin Table -->
+					<HBox width="100%" id="TOOL_BAR" alignContent="Start" alignItems="Center" visible="false ">
+						<Toolbar>
+							<content>
+								<Button text="{i18n>save}" icon="sap-icon://save" tooltip="Recept selected items" press="SaveSelected" type="Emphasized"/>
+								<Button icon="sap-icon://delete" tooltip="clear list" press="ClearLabels" text="{i18n>clear_label}" type="Emphasized"/>
+							</content>
+						</Toolbar>
+					</HBox>
+					<!--<Button text="{i18n>clear_label}" icon="sap-icon://undo" tooltip="Recept selected items" press="BackInit" id="Back" type="Emphasized"
+						width="100px" visible="false"/>-->
+					<ScrollContainer horizontal="true" vertical="true" focusable="true" height="420px" class="sapUiSizeCompact">
+						<Table id="table1" items="{itemModel>/items}"  ariaLabelledBy="title" width="100%" visible="false" class="tableItems" >
+							<columns>
+								<Column width="3.5rem">
+									<Label text="{i18n>gtin}({Model2&gt;/Products})"/>
+								</Column>
+								<Column width="4rem">
+									<Label text="{i18n>prod_name}"/>
+								</Column>
+								<Column width="2rem" class="yellow">
+									<Label text="{i18n>quantity}({Model2&gt;/Sum})"/>
+								</Column>
+								<!--<Column width="0.5rem">
+									<Label text="{i18n>unit}"/>
+								</Column>-->
+							</columns>
+							<items>
+								<ColumnListItem >
+									<cells>
+										<Text text="{itemModel>GTIN}"/>
+										<Text text="{itemModel>Maktx}"/>
+										<Text text="{itemModel>Menge}" class="bold"/>
+										<!--<Text text="{itemModel>Meins}"/>-->
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</ScrollContainer>
+					<!-- Begin Table -->
+					<!--<HBox width="100%" id="Scroll" alignContent="Start" alignItems="Center" visible="false">
+						<HBox width="1000000%" id="Spac" alignContent="Start" alignItems="Center"/>
+						<VBox width="100%" id="Scollvert" alignContent="Start" alignItems="Center">
+							<sap.ui.core:Icon xmlns:sap.ui.core="sap.ui.core" src="sap-icon://collapse-group" size="1em" id="icon11"/>
+							<sap.ui.core:Icon xmlns:sap.ui.core="sap.ui.core" src="sap-icon://expand-group" size="1em" id="icon10"/>
+						</VBox>
+					</HBox>-->
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
